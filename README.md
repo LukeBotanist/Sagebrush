@@ -1,3 +1,3 @@
 # Sagebrush
 
-This repository contains data for population genetic analysis of big sagebrush (A. tridentata) and will be populated soon. 
+This repository hosts data and code for population genetic analysis of big sagebrush (A. tridentata). 
