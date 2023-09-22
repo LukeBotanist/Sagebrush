@@ -17,6 +17,8 @@ library(gplots)
 ## ----setwd.1, eval=F--------------------------------------------------------------------------------------------------------------------------------------------
 
 setwd("./") ## setwd("path/to/working/directory")
+polyrel_exec <- "~/PATH/TO/SOFTWARE/EXECUTABLE/PolyRelatedness.out" #Path to software executable - please refer to the manual and use the correct version for your operating system!
+polyrel_dir <- "~/Software/polyrelatedness/" #Path to software directory
 
 ## ---- eval=T----------------------------------------------------------------------------------------------------------------------------------------------------
 main <- "https://github.com/LukeBotanist/Sagebrush/archive/refs/heads/main.zip"
@@ -187,28 +189,28 @@ polyrel_input <- polyrel.in %>%
 ## ---- write polyrel input genotypes-----------------------------------------------------------------------------------------------------------------------------
 filename <- "all_maf004"
 
-write_delim(polyrel_input, paste0("~/Software/PolyRelatedness_1/",filename), delim ="\t", quote = "none", eol = "\n") #write tab separated table
+write_delim(polyrel_input, paste0(polyrel_dir,filename), delim ="\t", quote = "none", eol = "\n") #write tab separated table
 
 
 
 ## ----comment=''-------------------------------------------------------------------------------------------------------------------------------------------------
-cat(readLines('~/Software/PolyRelatedness_1/header.txt'), sep = '\n')
+cat(readLines(paste0(polyrel_dir,"header.txt")), sep = '\n')
 
 
 ## ---- combine config and data for polyrelatedness---------------------------------------------------------------------------------------------------------------
-outdir <- "~/Software/PolyRelatedness_1/"
+outdir <- polyrel_dir
 outfile_name <- paste0(filename,"_polyrel_in.txt")
 
-combine <- paste0("cat ", outdir,"header.txt ",outdir,filename," ",outdir,"end.txt > ",outdir,outfile_name)
+combine <- paste0("cat ", outdir, "header.txt"," ", outdir, filename," ",outdir,"end.txt > ",outdir,outfile_name)
+print(paste0("Writing file to: ", outdir,outfile_name))
 system(combine)
 
 
 
 ## ---- run polyrel from file-------------------------------------------------------------------------------------------------------------------------------------
 polyrel_outfile <- paste0(outdir,filename,"_polyrel_out.txt")
-command <- paste("~/Software/PolyRelatedness_1/PolyRelatedness",paste0(outdir,outfile_name),polyrel_outfile,"e 5 0")
+command <- paste0(polyrel_exec," ",paste0(outdir,outfile_name)," ",polyrel_outfile," ","e 5 0")
 system(command,intern = T)
-
 
 ## ---- filter.maf.str, echo=T------------------------------------------------------------------------------------------------------------------------------------
 data.comb.str <- data.comb %>% 
