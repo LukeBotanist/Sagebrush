@@ -4,7 +4,8 @@ This repository hosts data and code for the population genetic analyses performe
 
 # Project description
 
-This project aimed to identify the distinctiveness of *Artemisia tridentata* subspecies as well as the detection of hybridization. To this end, we sampled five transects throughout the western United States where a subspecies overlap was predicted using subspecies-specific climate niche models. Along each transect, we sampled multiple plots representing the parental and the potential hybrid habitats. We performed reduced representation sequencing and processed the data using a ploidy-informed genotyping approach. Here, I provide the codes used for the analyses in the the aforementioned publication.
+This project aimed to identify the distinctiveness of *Artemisia tridentata* subspecies as well as the detection of hybridization. To this end, we sampled five transects throughout the western United States where a subspecies overlap was predicted using subspecies-specific climate niche models. Along each transect, we sampled multiple plots representing the parental and the potential hybrid habitats. We performed reduced representation sequencing and processed the data using a ploidy-informed genotyping approach. Here, I provide the basic codes used for the analyses of the heteroploid data.
+Geospatial analyses, additional sections and bug-fixes will follow soon. 
 
 # Data analysis
 
