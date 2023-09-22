@@ -17,9 +17,11 @@ This pipeline was written under R version 3.3.6 and tested up tp R version 4.3.1
 - `data/PolyRelatedness_data`: Required formatting files and example file
 - `data/STRUCTURE_data`: contains the subspecies assignments inferred in the manuscript
 
-- `docs/` contains:
-- `docs/EBG_pipeline.html`: vignette to data analysis
-- `docs/EBG_pipeline.pdf`:
+- `docs/` contains tutorials for data analysis in different formats
+- `docs/EBG_pipeline.html`
+- `docs/EBG_pipeline.pdf`
+- `docs/EBG_pipeline.md`
+- `docs/EBG_pipeline_files`: directory with figures for renderind the markdown.
 
 - `src/` contains:
 - `src/functions.R`: functions to convert and calculate data
@@ -32,4 +34,4 @@ This pipeline was written under R version 3.3.6 and tested up tp R version 4.3.1
 Funding was provided by the NSF Idaho EPSCoR Program and by the National Science Foundation under award number OIA-1757324. Additional financial support was provided by the Stillinger Expedition fund, and the USDA Rocky Mountain Research Station.
 
 
-[Data Analysis](docs/EBG_pipeline.md)
+# [Getting Started](docs/EBG_pipeline.md)
