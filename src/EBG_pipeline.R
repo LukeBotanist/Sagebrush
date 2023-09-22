@@ -30,15 +30,6 @@ unzip(zipfile = "main.zip")
 setwd(paste0(getwd(),"/Sagebrush-main"))
 
 
-## ----setup.2, include=FALSE-------------------------------------------------------------------------------------------------------------------------------------
-knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir = "/Users/lukas/Library/Mobile Documents/com~apple~CloudDocs/Projects/Sagebrush/EBG_pipeline/verification/Sagebrush-main/")
-library(tidyverse)
-library(gridExtra)
-library(reshape)
-library(gplots)
-
-
 ## ---- warning=F-------------------------------------------------------------------------------------------------------------------------------------------------
 dirs2create <- c("results/figures", "results/tables")
 for (i in 1:length(dirs2create)){
