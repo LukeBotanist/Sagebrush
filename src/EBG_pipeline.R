@@ -354,9 +354,14 @@ heatmap.2(relatedness_matrix, trace="none", cexRow=0.2,
 
 
 ## ---- allele freqs, echo=F, warning=F, message=F, results="hide"------------------------------------------------------------------------------------------------
-tetraploids <- data.comb %>% filter(Ploidy==4) %>% as.data.frame()
+tetraploids <- data.comb %>% 
+  filter(Ploidy==4) %>% 
+  as.data.frame()
 
 all <- est_inheritance(tetraploids)
+
+head(all)
+
 ggplot(all, aes(x =allele_freqs , y = gt_freq, group = type, color = type, linetype=type)) + 
   geom_smooth(method='gam',se = F, fullrange=T) +
   labs(x="Allele Frequency", y="Genotype Frequency")
@@ -390,7 +395,7 @@ elapsed.time <- round((end.time - start.time), 3)
 twee()
 
 
-## ---- warning=F, message=F--------------------------------------------------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------------------------------------------------
 ssp.assignments <- read.table("data/STRUCTURE_data/K4_assignments.txt", header=T)
 
 assignments.reformat <- ssp.assignments %>% 
@@ -406,7 +411,6 @@ pca_combined <-pca_combined %>%  mutate(ssp_pl=paste0(ssp,"_",Ploidy, "x"))
 
 shapes_pca <- c("vas1_2x"=2,
             "vas1_4x"=17,
-            "hybrid"=10,
             "tri_2x"=1,
             "tri_4x"=16,
             "wyo1_2x"=0,
@@ -422,11 +426,11 @@ cols_pca <- c("vas1_2x" = "#5b9bd5", # darkblue
 
 
 labels <- c("vas1_2x"="2x vaseyana",
-            "hybrid"="hybrid",
             "vas1_4x"="4x vaseyana",
             "tri_2x"="2x tridentata",
             "wyo1_4x"="4x wyomingensis 1",
             "wyo2_4x"="4x wyomingensis 2")
+
 name <- "subspecies"
 
 
