@@ -470,7 +470,8 @@ for (i in levels(tetraploids_site$site)){
   p <- ggplot(estimates_site, aes(x = allele_freqs , y = gt_freq, group = type, color = type, linetype=type)) + 
   geom_smooth(method='gam',se = F, fullrange=T)+
   theme_classic()+
-  labs(title=paste("Inheritance Site", i))+
+  labs(title=paste("Inheritance Site", i),
+      subtitle=paste("n =",nrow(site),"Samples"))+
   scale_color_manual(values = c("TTTT" = "blue2",
                                 "ATTT" = "blue2",
                                 "AATT"="cyan3",
