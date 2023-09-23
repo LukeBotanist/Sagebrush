@@ -210,7 +210,7 @@ system(combine)
 ## ---- run polyrel from file-------------------------------------------------------------------------------------------------------------------------------------
 polyrel_outfile <- paste0(outdir,filename,"_polyrel_out.txt")
 command <- paste0(polyrel_exec," ",paste0(outdir,outfile_name)," ",polyrel_outfile," ","e 5 0")
-system(command,intern = T)
+system(command)
 
 ## ---- filter.maf.str, echo=T------------------------------------------------------------------------------------------------------------------------------------
 data.comb.str <- data.comb %>% 
