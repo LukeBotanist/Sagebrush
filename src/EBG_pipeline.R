@@ -260,14 +260,13 @@ tail(sSNP_fin[1:5],5)
 ## ---- write str_in file---------------------------------------------------------------------------------------------------------------------------------
 #Let's see what we got for our structure analysis - we can also write these results as table as structure requires those numbers for the input file. 
 dataset_dims <- dim(sSNP_fin)
-filename <- paste0("structure_",dataset_dims[1]/4,"ind",dataset_dims[2]-1,"SNPs")
+filename.str <- paste0("structure_",dataset_dims[1]/4,"ind",dataset_dims[2]-1,"SNPs")
 print(paste("In the final structure data set are",dataset_dims[1]/4,"Individuals and", dataset_dims[2]-1 , "Variants"))
 str.info <- data.frame(nr_ind=dataset_dims[1]/4,
                        nr_vars=dataset_dims[2]-1)
 write.table(str.info, paste0("results/tables/",filename,".info.txt"), row.names = F, quote=F)
 
-#filename <- "ebg_structure004_correct_sSNP"
-write.table(sSNP_fin, file= paste0("results/tables/",filename,".str"), quote=F, col.names = F, sep = "\t", row.names = F)
+write.table(sSNP_fin, file= paste0("results/tables/",filename.str,".str"), quote=F, col.names = F, sep = "\t", row.names = F)
 
 
 
