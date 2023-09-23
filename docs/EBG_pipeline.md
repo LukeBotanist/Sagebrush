@@ -316,7 +316,7 @@ After filtering for different thresholds, the visualization of the
 allele frequencies allows to assess distribution and number of remaining
 SNPs.
 
-![](EBG_pipeline_files/figure-gfm/plot%20different%20maf%20filters-1.pdf)<!-- -->
+![](EBG_pipeline_files/figure-gfm/plot%20different%20maf%20filters-1.png)<!-- -->
 
 This study opted to choose a threshold of 0.04 (4%), as this represents
 around 18 individuals which corresponds well to the initial number of
