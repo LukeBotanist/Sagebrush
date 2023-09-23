@@ -1,5 +1,5 @@
 ## K4_assignments.txt
-STRUCTURE derived ancestry poportions and assigned subspecies (=max. ancestry proportion) at K=4 (=the model best fit the data) as published in Grossfurthner et al. 2023
+STRUCTURE derived ancestry poportions and assigned subspecies (=max. ancestry proportion) at K=4 (=the model best fit the data) as published in Grossfurthner et al. (2023). Model settings: 30,000 burnin; 100,000 replicates. 
 ### Sample_ID (CHAR): 
  - Sample_ID as used in the study
 ### tri (INT): 
