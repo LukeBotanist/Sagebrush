@@ -1,4 +1,4 @@
-## ---- start time, echo=F----------------------------------------------------------------------------------------------------------------------------------------
+print("Please confirm you are using an R version > 3.5.0. Starting data processing...")
 start.time <- Sys.time()
 
 
@@ -8,17 +8,24 @@ list.of.packages <- c("gplots","gridExtra","reshape2","tidyverse")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 
-library(tidyverse)
-library(gridExtra)
-library(reshape)
-library(gplots)
+library(tidyverse, quietly = T)
+library(gridExtra, quietly = T)
+library(reshape, quietly = T)
+library(gplots, quietly = T)
 
 
 ## ----setwd.1, eval=F--------------------------------------------------------------------------------------------------------------------------------------------
 
-setwd("./") ## setwd("path/to/working/directory")
-polyrel_exec <- "~/PATH/TO/SOFTWARE/EXECUTABLE/PolyRelatedness.out" #Path to software executable - please refer to the manual and use the correct version for your operating system!
+setwd("~") ## setwd("path/to/working/directory")
+polyrel_exec <- "~/Software/polyrelatedness/PolyRelatedness.out" #Path to software executable - please refer to the manual and use the correct version for your operating system!
 polyrel_dir <- "~/Software/polyrelatedness/" #Path to software directory
+
+check_file <- file.exists(polyrel_exec)
+
+if (check_file == F ){
+  print("Please specify a valid path to the Software. Shutting down...")
+  stop()
+}
 
 ## ---- eval=T----------------------------------------------------------------------------------------------------------------------------------------------------
 main <- "https://github.com/LukeBotanist/Sagebrush/archive/refs/heads/main.zip"
@@ -385,18 +392,8 @@ for (i in levels(tetraploids_site$site)){
 
 ggpubr::ggarrange(inheritance_plots$C,inheritance_plots$L, inheritance_plots$O, inheritance_plots$P,inheritance_plots$C, common.legend = T)
 
-
-
-## ---- echo=F----------------------------------------------------------------------------------------------------------------------------------------------------
-end.time <- Sys.time()
-
-elapsed.time <- round((end.time - start.time), 3)
-
-twee()
-
-
 ## ------------------------------------------------------------------------------------------------------------------------------------------
-ssp.assignments <- read.table("data/STRUCTURE_data/K4_assignments.txt", header=T)
+ssp.assignments <- read.table("data/STRUCTURE_data/K4_assignments.txt", header=T, stringsAsFactors = F)
 
 assignments.reformat <- ssp.assignments %>% 
   dplyr::mutate(Sample_ID = ifelse(grepl("NA", Sample_ID), 
@@ -502,4 +499,15 @@ for (i in 1:length(inheritance_plots)){
   dev.off()
 }
 
+end.time <- Sys.time()
+elapsed.time <- round((end.time - start.time), 2)
+time_description <- sprintf("Data processed in %.2f %s.",elapsed.time, units(elapsed.time))
+
+print("Please confirm all files were generated")
+
+twee()
+
+
+
+print(paste(time_description, "Pipeline completed. Shutting down..."))
 
