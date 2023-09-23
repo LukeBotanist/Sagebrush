@@ -15,19 +15,19 @@ The full pipeline `EBG_pipeline.R` can be executed using `Rscript EBG_pipeline.R
 This pipeline was written under R version 3.3.6 and tested up tp R version 4.3.1 on a aarch64-apple-darwin20 (64-bit) platform, running under: macOS Ventura 13.5.2.
 
 - `data/` contains:
-- `data/EBG_data`: diploid and tetraploid genotypes, shared variants and Sample_ID
-- `data/PolyRelatedness_data`: Required formatting files and example file
-- `data/STRUCTURE_data`: contains the subspecies assignments inferred in the manuscript
+  - `EBG_data`: files with diploid and tetraploid genotypes, shared variants and Sample_ID
+  - `PolyRelatedness_data`: required formatting files and example file
+  - `STRUCTURE_data`: subspecies assignments and ancestry proportions as inferred in Grossfurthner et al. (2023)
 
 - `docs/` contains tutorials for data analysis in different formats
-- `docs/EBG_pipeline.html`
-- `docs/EBG_pipeline.pdf`
-- `docs/EBG_pipeline.md`
-- `docs/EBG_pipeline_files`: directory with figures for renderind the markdown.
+  - `EBG_pipeline.html`
+  - `EBG_pipeline.pdf`
+  - `EBG_pipeline.md`
+  - `EBG_pipeline_files`: directory with figures for renderind the markdown.
 
 - `src/` contains:
-- `src/functions.R`: functions to convert and calculate data
-- `src/EBG_pipeline.R`: script for data analysis which can be exectuted using `Rscript EBG_pipeline.R`.
+  - `functions.R`: functions to convert and calculate data; invoked by the `EBG_pipeline.R script`
+  - `EBG_pipeline.R`: script for data analysis and plotting; can be exectuted using `Rscript EBG_pipeline.R`. **Note:** The software PolyRelatedness needs to be installed first.
 
 
 
